@@ -1,7 +1,10 @@
+from django.conf import settings
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import render
 
 from wagtail.core.models import Page
+from wagtail.images.models import Image
+from wagtail.documents.models import Document
 from wagtail.search.models import Query
 
 
@@ -15,7 +18,9 @@ def search(request):
         query = Query.get(search_query)
 
         # Record hit
-        query.add_hit()
+        query.add_hit()    
+        
+
     else:
         search_results = Page.objects.none()
 

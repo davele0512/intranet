@@ -1,0 +1,42 @@
+{% extends "account/base.html" %}
+
+{% load i18n %}
+{% load account %}
+
+{% block head_title %}{% trans "Sign In" %}{% endblock %}
+
+{% block content %}
+  <div class="container-fluid">
+    <div class="row no-gutter">
+      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
+        <img src="https://image.freepik.com/free-vector/blue-vertical-wavy-background_1035-9214.jpg?5" alt="background-image">
+      </div>
+      <div class="col-md-8 col-lg-6">
+        <div class="login d-flex align-items-center py-5">
+          <div class="container">
+            <div class="row">
+              <div class="login-form-area col-md-9 col-lg-8">
+                <br>
+                <h1 class="login-heading mb-4">{% trans "Sign In" %}</h1>
+
+                <p>{% blocktrans %}If you do not have an account, please contact Service Desk for support.{% endblocktrans %}</p>
+              
+                <form class="form-label-group" method="POST" action="{% url 'account_login' %}" style="text-align:left;" autocomplete="off">
+                  {% csrf_token %}
+                  {{ form }}
+                  {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                  {% endif %}
+                  <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">{% trans "Sign In" %}</button>
+                  <br>
+                  <a class="small" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+{% endblock %}
