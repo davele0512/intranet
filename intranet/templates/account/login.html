@@ -8,10 +8,13 @@
 {% block content %}
   <div class="container-fluid">
     <div class="row no-gutter">
-      <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image">
-        <img src="https://image.freepik.com/free-vector/blue-vertical-wavy-background_1035-9214.jpg?5" alt="background-image">
+      <div class="d-none d-md-flex col-md-4 col-lg-7 bg-image">
+        <svg class="bg-img-fill">
+            <rect id="bg-img-fill" rx="0" ry="0" x="0" y="0" width="1920" height="1020"></rect>
+        </svg>
+        <img src="https://i.pinimg.com/originals/b4/73/e8/b473e8603b210ca1290d72f999c26e3b.jpg" alt="background-image">
       </div>
-      <div class="col-md-8 col-lg-6">
+      <div class="col-md-4 col-lg-5">
         <div class="login d-flex align-items-center py-5">
           <div class="container">
             <div class="row">
@@ -19,10 +22,12 @@
                 <br>
                 <h1 class="login-heading mb-4">{% trans "Sign In" %}</h1>
 
-                <p>{% blocktrans %}If you do not have an account, please contact Service Desk for support.{% endblocktrans %}</p>
+                <p>{% blocktrans %}<small>If you do not have an account, please contact Service Desk for support.</small>{% endblocktrans %}</p>
               
-                <form class="form-label-group" method="POST" action="{% url 'account_login' %}" style="text-align:left;" autocomplete="off">
+                <form class="form-label-group" method="POST" action="{% url 'account_login' %}" style="text-align:left;" autocomplete="off" >
                   {% csrf_token %}
+                  <i id="login-icon" class="fa fa-user" aria-hidden="true"></i>
+                  <i id="password-icon" class="fa fa-lock" aria-hidden="true"></i>
                   {{ form }}
                   {% if redirect_field_value %}
                   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
@@ -30,6 +35,7 @@
                   <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2" type="submit">{% trans "Sign In" %}</button>
                   <br>
                   <a class="small" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                  
                 </form>
               </div>
             </div>

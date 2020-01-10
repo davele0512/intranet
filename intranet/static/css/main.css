@@ -1060,10 +1060,20 @@ span.outline {
 }
 .login-form-area {
   text-align: center;
+  padding-top: 50px;
+  width: 80%;
 }
 .bg-image {
   background-size: cover;
-  background-position: center;
+  background-position: contain;
+}
+.bg-img-fill {
+  fill: #00545f;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: visible;
+  fill-opacity: 60%;
 }
 .login-heading {
   font-weight: 300;
@@ -1073,6 +1083,53 @@ span.outline {
   letter-spacing: 0.05rem;
   padding: 0.75rem 1rem;
   border-radius: 2rem;
+}
+
+@import "compass/css3";
+
+.form-label-group>input[type=text], id_login {
+  @include transition(all 0.30s ease-in-out);
+  outline: none;
+  height: 5rem;
+  padding-left: 35px;
+  border: 1px solid #DDDDDD;
+  border-radius: 3rem;
+}
+.form-label-group>input[type=text]:focus, id_login:focus {
+  @include box-shadow(0 0 5px rgba(81, 203, 238, 1));
+  height: 5rem;
+  padding-left: 35px;
+  border: 1px solid rgba(81, 203, 238, 1);
+  border-radius: 3rem;
+}
+.form-label-group>input[type=password], id_password {
+  @include transition(all 0.30s ease-in-out);
+  height: 5rem;
+  outline: none;
+  padding-left: 35px;
+  border: 1px solid #DDDDDD;
+  border-radius: 3rem;
+}
+.form-label-group>input[type=password]:focus, id_password:focus {
+  @include box-shadow(0 0 5px rgba(81, 203, 238, 1));
+  height: 5rem;
+  padding-left: 35px;
+  border: 1px solid rgba(81, 203, 238, 1);
+  border-radius: 3rem;
+}
+.form-label-group>i#login-icon {
+  font-size: 24px;
+  position: absolute;
+  padding-top: 33px;
+  padding-left: 10px;
+  z-index: 1;
+}
+.form-label-group>i#password-icon {
+  font-size: 24px;
+  position: absolute;
+  padding-top: 123px;
+  padding-left: 10px;
+  z-index: 1;
 }
 .form-label-group {
   position: relative;
@@ -1105,8 +1162,9 @@ span.outline {
   cursor: text;
   /* Match the input under the label */
   border: 1px solid transparent;
-  border-radius: .25rem;
+  border-radius: 3rem;
   transition: all .1s ease-in-out;
+  visibility: hidden;
 }
 .form-label-group input::-webkit-input-placeholder {
   color: transparent;
@@ -1129,6 +1187,10 @@ span.outline {
   padding-bottom: calc(var(--input-padding-y) / 3);
   font-size: 12px;
   color: #777;
+}
+.col-md-4 {
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 @media all and (-ms-high-contrast: none),
