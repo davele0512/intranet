@@ -4,11 +4,15 @@
 /.coverage
 /dist/
 /build/
-/MANIFEST
+/MANIFEST/
 /wagtail.egg-info/
 /docs/_build/
 /.tox/
-/venv
+/venv/
+/invenv/
+/static/
+/media/
+.env
 /node_modules/
 npm-debug.log*
 *.idea/
