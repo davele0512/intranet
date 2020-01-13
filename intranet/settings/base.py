@@ -20,6 +20,8 @@ BASE_DIR = os.path.dirname(PROJECT_DIR)
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = '&41^n@(^uh=_l#2u(@0gyxnw_8r3y+ksm0^e4jrcr1fd0k!5=+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -44,10 +46,12 @@ INSTALLED_APPS = [
     'wagtail.images',
     'wagtail.search',
     'wagtail.admin',
+    'wagtail.api.v2',
     'wagtail.contrib.modeladmin',
     'wagtail.contrib.routable_page',
     'wagtail.core',
 
+    'rest_framework',
     'modelcluster',
     'taggit',
     'wagtailfontawesome',
@@ -113,12 +117,8 @@ WSGI_APPLICATION = 'intranet.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'wg_intranet_db',
-        'USERNAME': 'dave_csv',
-        'PASSWORD': 'davele0512',
-        'HOST': "",
-        'PORT': "54423",
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'bakerydemodb')
     }
 }
 
@@ -173,12 +173,19 @@ STATICFILES_DIRS = [
 # See https://docs.djangoproject.com/en/2.2/ref/contrib/staticfiles/#manifeststaticfilesstorage
 STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
 
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'collect_static')
 STATIC_URL = '/static/'
 
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media')
 MEDIA_URL = '/media/'
 
+# Use Elasticsearch as the search backend for extra performance and better search results
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.search.backends.db',
+        'INDEX': 'intranet',
+    },
+}
 
 # Wagtail settings
 
