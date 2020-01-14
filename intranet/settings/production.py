@@ -42,7 +42,7 @@ DATABASES['default'].update(db_from_env)
 # AWS_REGION = os.getenv('AWS_REGION', '')
 
 # configure CACHES from CACHE_URL environment variable (defaults to locmem if no CACHE_URL is set)
-CACHES = {'default': django_cache_url.config()}
+# CACHES = {'default': django_cache_url.config()}
 
 # Configure Elasticsearch, if present in os.environ
 # ELASTICSEARCH_ENDPOINT = os.getenv('ELASTICSEARCH_ENDPOINT', '')
