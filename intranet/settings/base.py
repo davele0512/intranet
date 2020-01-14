@@ -26,7 +26,7 @@ SECRET_KEY = '&41^n@(^uh=_l#2u(@0gyxnw_8r3y+ksm0^e4jrcr1fd0k!5=+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['wgintranet.herokuapp.com']
 
 # Application definition
 
