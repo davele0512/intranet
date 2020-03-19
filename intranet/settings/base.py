@@ -26,7 +26,7 @@ SECRET_KEY = '&41^n@(^uh=_l#2u(@0gyxnw_8r3y+ksm0^e4jrcr1fd0k!5=+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['wgintranet.herokuapp.com']
+ALLOWED_HOSTS = ['wgintranet.herokuapp.com', 'localhost', '127.0.0.1']
 
 # Application definition
 
@@ -213,3 +213,6 @@ ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False
 ACCOUNT_USERNAME_BLACKLIST = ["admin"]
 ACCOUNT_USERNAME_MIN_LENGTH = 2
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False
+
+
+WAGTAIL_FRONTEND_LOGIN_TEMPLATE = 'account/login.html'

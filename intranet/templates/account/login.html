@@ -26,8 +26,6 @@
               
                 <form class="form-label-group" method="POST" action="{% url 'account_login' %}" style="text-align:left;" autocomplete="off" >
                   {% csrf_token %}
-                  <i id="login-icon" class="fa fa-user" aria-hidden="true"></i>
-                  <i id="password-icon" class="fa fa-lock" aria-hidden="true"></i>
                   {{ form }}
                   {% if redirect_field_value %}
                   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
