@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['wgintranet.herokuapp.com', 'localhost', '127.0.0.1']
 INSTALLED_APPS = [
     'intranet.base',
     'intranet.search',
-    'intranet.curriculum',
     'intranet.lesson',
 
     'wagtail.contrib.search_promotions',
