@@ -124,6 +124,7 @@ class StandardPage(Page):
     it could be used for any type of page content that only needs a title,
     image, introduction and body field
     """
+    subpage_types = []
 
     introduction = models.TextField(
         help_text='Text to describe the page',
@@ -314,6 +315,8 @@ class GalleryPage(Page):
     and is intended to show the extensibility of this aspect of Wagtail
     """
 
+    subpage_types = []
+
     introduction = models.TextField(
         help_text='Text to describe the page',
         blank=True)
@@ -388,3 +391,7 @@ class FormPage(AbstractEmailForm):
             FieldPanel('subject'),
         ], "Email"),
     ]
+
+    subpage_types = []
+
+

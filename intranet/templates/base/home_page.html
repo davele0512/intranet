@@ -4,8 +4,8 @@
 {% block content %}
 <div class="homepage">
 
-{% image page.image fill-1920x600 as image %}
-<div class="container-fluid hero" style="background-image:url('{{ image.url }}')">
+<!-- {% image page.image fill-1920x600 as image %} -->
+<!-- <div class="container-fluid hero" style="background-image:url('{{ image.url }}')">
     <div class="hero-gradient-mask"></div>
     <div class="container">
         <div class="row">
@@ -22,9 +22,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-<div class="container">
+<!-- <div class="container">
     <div class="row promo-row">
         <div class="col-sm-5 promo">
             {% if page.promo_image or page.promo_title or page.promo_text %}
@@ -60,7 +60,7 @@
             {% endif %}
         </div>
     </div>
-</div>
+</div> -->
 
 {% if page.body %}
 <div class="container-fluid streamfield">
@@ -74,7 +74,7 @@
 </div>
 {% endif %}
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-md-12 feature-2">
             {% if page.featured_section_2 %}
@@ -97,9 +97,9 @@
             {% endif %}
         </div>
     </div>
-</div>
+</div> -->
 
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-md-12 feature-3">
             {% if page.featured_section_3 %}
@@ -119,6 +119,6 @@
             {% endif %}
         </div>
     </div>
-</div>
+</div> -->
 </div>
 {% endblock content %}
