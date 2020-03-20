@@ -158,6 +158,8 @@ class HomePage(Page):
     - Moveable featured site sections
     """
 
+    subpage_types = ['StandardPage','GalleryPage', 'FormPage']
+
     # Hero section of HomePage
     image = models.ForeignKey(
         'wagtailimages.Image',

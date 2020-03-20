@@ -1,1 +1,1 @@
-web: gunicorn intranet.wsgi
+web: gunicorn intranet.wsgi --log-file -
