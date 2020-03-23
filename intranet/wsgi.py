@@ -9,6 +9,7 @@ import os
 
 import dotenv
 from django.core.wsgi import get_wsgi_application
+# from whitenoise.django import DjangoWhiteNoise
 
 
 dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.env'))
@@ -16,3 +17,5 @@ dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.en
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "intranet.settings.dev")
 
 application = get_wsgi_application()
+# application = DjangoWhiteNoise(application)
+
