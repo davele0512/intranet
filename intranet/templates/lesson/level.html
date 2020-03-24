@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags wagtailroutablepage_tags %}
+
+{% block content %}
+    <a href="{% routablepageurl page "latest_lessons" %}">View Latest Lessons Only</a>
+    
+    <h2>
+        Categories:
+        <small>
+            {% for cat in categories %}
+                <a href="{% routablepageurl page "category_view" cat.slug %}">
+                    {{ cat.name }}
+                </a>{% if not forloop.last %}, {% endif %}
+            {% endfor %}
+        </small>
+    </h2>
+    <div class="container">
+        {% for lesson in lessons %}
+                <div class="row mt-5 mb-5">
+                    <div class="col-sm-3">
+                        {% image lesson.banner_image fill-250x250 as lesson_img %}
+                        <a href="{{ lesson.url }}">
+                            <img src="{{ lesson_img.url }}" alt="{{ lesson_img.alt }}" style='width: 100%;'>
+                        </a>
+                    </div>
+                    <div class="col-sm-9">
+                        <a href="{{ lesson.url }}">
+                            <h2>{{ lesson.title }}</h2>
+                            {% if lesson.specific.objective %}
+                                <p>{{ lesson.specific.objective }}</p>
+                            {% endif %}
+
+                            {# @todo add a summary field to BlogDetailPage; make it a RichTextField with only Bold and Italic enabled. #}
+                            <a href="{{ lesson.url }}" class="btn btn-primary mt-4">Read More</a>
+                        </a>
+                    </div>
+                </div>
+        {% endfor %}
+    </div>
+    
+    {# Only show pagination if there is more than one page to click through #}
+    {% if lessons.paginator.num_pages > 1 %}
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="pagination">
+                        {% if lessons.has_previous %}
+                            <li class="page-item">
+                                <a href="?page={{ lessons.previous_page_number }}" class="page-link">
+                                    <span>&laquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+
+                        {% for page_num in lessons.paginator.page_range %}
+                            <li class="page-item {% if page_num == lessons.number %} active{% endif %}">
+                                <a href="?page={{ page_num }}" class="page-link">
+                                    {{ page_num }}
+                                </a>
+                            </li>
+                        {% endfor %}
+
+                        {% if lessons.has_next %}
+                            <li class="page-item">
+                                <a href="?page={{ lessons.next_page_number }}" class="page-link">
+                                    <span>&raquo;</span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock content %}

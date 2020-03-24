@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% load wagtailimages_tags %}
+
+{% block content %}
+
+    <div class="container">
+        <h1>Latest Lessons</h1>
+        {% for lesson in lessons %}
+            <div class="row mt-5 mb-5">
+                <div class="col-sm-3">
+                    {% image lesson.banner_image fill-250x250 as banner_img %}
+                    <a href="{{ lesson.url }}">
+                        <img src="{{ banner_img.url }}" alt="{{ blog_img.alt }}">
+                    </a>
+                </div>
+                <div class="col-sm-9">
+                    <a href="{{ lesson.url }}">
+                        <h2>{{ lesson.title }}</h2>
+                        {# @todo add a summary field to BlogDetailPage; make it a RichTextField with only Bold and Italic enabled. #}
+                        <a href="{{ lesson.url }}" class="btn btn-primary mt-4">Read More</a>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
+{% endblock content %}
