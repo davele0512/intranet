@@ -168,7 +168,7 @@ virtualenv==16.6.2
 virtualenv-clone==0.5.3
 virtualenvwrapper==4.8.4
 virtualenvwrapper-win==1.2.5
-wagtail==2.7
+wagtail==2.7.2
 wagtailfontawesome==1.1.4
 WeasyPrint==50
 webencodings==0.5.1
