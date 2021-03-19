@@ -56,7 +56,7 @@ django-toolbelt==0.0.1
 django-treebeard==4.3
 django-versatileimagefield==1.11
 django-webpack-loader==0.6.0
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 docutils==0.15.2
 draftjs-exporter==2.1.7
 draftjs-sanitizer==1.0.0
